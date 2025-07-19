@@ -1,0 +1,17 @@
+server:
+  port: 8086
+  shutdown: GRACEFUL
+logging:
+  level:
+    org.springframework.security: trace
+
+
+spring:
+  application:
+    name: comrade-news
+  threads:
+    virtual:
+      enabled: true
+
+
+

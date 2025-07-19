@@ -16,6 +16,8 @@
 	<description>This is used to learn spring security</description>
 	<modules>
 		<module>comrade-authorization-server</module>
+		<module>comrade-news</module>
+		<module>comrade-llm</module>
 	</modules>
 	<properties>
 		<java.version>21</java.version>

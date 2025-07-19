@@ -1,0 +1,17 @@
+server:
+  port: 8085
+  shutdown: GRACEFUL
+logging:
+  level:
+    org.springframework.security: trace
+
+
+spring:
+  application:
+    name: comrade-llm
+  threads:
+    virtual:
+      enabled: true
+
+
+
