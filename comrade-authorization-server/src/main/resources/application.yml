@@ -1,0 +1,44 @@
+server:
+  port: 9000
+  shutdown: GRACEFUL
+logging:
+  level:
+    org.springframework.security: trace
+
+
+spring:
+  application:
+    name: comrade-authorization-server
+  threads:
+    virtual:
+      enabled: true
+  security:
+#    user:
+#      name: shiva
+#      password: shiva
+    oauth2:
+      authorizationserver:
+        client:
+          comrade-news-client:
+            registration:
+              client-id: "comrade-news-client"
+              client-secret: "{noop}shiva"
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "authorization_code"
+                - "client_credentials"
+                - "refresh_token"
+              redirect-uris:
+                - "http://127.0.0.1:8080/login/oauth2/code/oidc-client"
+              post-logout-redirect-uris:
+                - "http://127.0.0.1:8080/"
+              scopes:
+                - "openid"
+                - "profile"
+            token:
+              access-token-time-to-live: 3600s
+            require-authorization-consent: false
+
+
+
