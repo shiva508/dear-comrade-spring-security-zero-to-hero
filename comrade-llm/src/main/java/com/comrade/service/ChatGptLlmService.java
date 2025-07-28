@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class ChatGptLlmService implements LlmService{
     @Override
     public LlmResponse getNewsInfo(LlmRequest llmRequest) {
-        log.info("payload : {}", llmRequest);
+        //log.info("payload : {}", llmRequest);
         return LlmResponse.builder().output("it is good news").build();
     }
 }

@@ -1,4 +1,5 @@
-POST http://localhost:9000/oauth2/token
-Authorization: Basic Y29tcmFkZS1uZXdzLWNsaWVudDpzaGl2YQ==
+POST http://192.168.0.101:9000/oauth2/token
+Authorization: Basic Y29tcmFkZS1uZXdzOmNvbXJhZGUtbmV3cw==
 Content-Type: application/x-www-form-urlencoded
+
 grant_type=client_credentials&scope=openid

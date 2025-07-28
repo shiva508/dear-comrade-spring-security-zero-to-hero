@@ -12,10 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/llm")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class ComradeLlmController {
 
     private final LlmService llmService;
+
+    public ComradeLlmController(LlmService llmService) {
+        this.llmService = llmService;
+    }
 
     @PostMapping("/news")
     public ResponseEntity<LlmResponse> getNewsInfo(LlmRequest llmRequest) {
