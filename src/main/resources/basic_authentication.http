@@ -1,0 +1,3 @@
+GET http://localhost:8084/api/v1/welcome
+Authorization: Basic U2hpdmE6U2hpdmE=
+Content-Type: application/json

@@ -1,0 +1,6 @@
+server:
+  port: 8084
+  shutdown: GRACEFUL
+spring:
+  application:
+    name: dear-comrade-security-zero-to-hero
