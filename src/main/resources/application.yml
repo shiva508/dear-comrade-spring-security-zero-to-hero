@@ -4,3 +4,16 @@ server:
 spring:
   application:
     name: dear-comrade-security-zero-to-hero
+
+  datasource:
+    url: jdbc:postgresql://0.0.0.0:5432/dha
+    username: comrade
+    password: dear
+    driver-class-name:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: 'create-drop'
+    show-sql: true
