@@ -1,5 +1,6 @@
 package com.comrade.config;
 
+import com.comrade.service.ComradeUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,15 +14,16 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @RequiredArgsConstructor
 public class ComradeSecurityConfig {
-    private final ComradeAuthenticationProvider comradeAuthenticationProvider;
+
+    private final ComradeUserDetailsService comradeUserDetailsService;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic(Customizer.withDefaults());
-        httpSecurity.authenticationProvider(comradeAuthenticationProvider);
+        httpSecurity.userDetailsService(comradeUserDetailsService);
         httpSecurity.cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->authorizationManagerRequestMatcherRegistry.anyRequest().authenticated());
+                .authorizeHttpRequests(amrmr ->amrmr.anyRequest().authenticated());
         return httpSecurity.build();
     }
 
