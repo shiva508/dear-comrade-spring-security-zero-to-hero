@@ -23,7 +23,11 @@ public class DearComradeSecurityZeroToHeroApplication {
 	@Bean
 	public ApplicationRunner applicationRunner(){
 		return wer->{
-			ComradeUserEntity comradeUserEntity = ComradeUserEntity.builder().username("dasari").password( bCryptPasswordEncoder.encode("shiva")).enabled(true).build();
+			ComradeUserEntity comradeUserEntity = ComradeUserEntity.builder()
+					.username("dasari")
+					.password(bCryptPasswordEncoder.encode("shiva"))
+					.enabled(true)
+					.build();
 			comradeUserRepository.save(comradeUserEntity);
 		};
 	}
