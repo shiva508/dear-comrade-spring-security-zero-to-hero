@@ -7,12 +7,15 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class DearComradeSecurityZeroToHeroApplication {
 
 	@Autowired
 	private ComradeUserRepository comradeUserRepository;
+	@Autowired
+	private PasswordEncoder bCryptPasswordEncoder;
 	public static void main(String[] args) {
 		SpringApplication.run(DearComradeSecurityZeroToHeroApplication.class, args);
 	}
@@ -20,7 +23,7 @@ public class DearComradeSecurityZeroToHeroApplication {
 	@Bean
 	public ApplicationRunner applicationRunner(){
 		return wer->{
-			ComradeUserEntity comradeUserEntity = ComradeUserEntity.builder().username("dasari").password("shiva").enabled(true).build();
+			ComradeUserEntity comradeUserEntity = ComradeUserEntity.builder().username("dasari").password( bCryptPasswordEncoder.encode("shiva")).enabled(true).build();
 			comradeUserRepository.save(comradeUserEntity);
 		};
 	}
