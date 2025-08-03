@@ -1,34 +1,16 @@
 package com.comrade;
 
-import com.comrade.entity.ComradeUserEntity;
-import com.comrade.repository.ComradeUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = UserDetailsServiceAutoConfiguration.class)
 public class DearComradeSecurityZeroToHeroApplication {
-
-	@Autowired
-	private ComradeUserRepository comradeUserRepository;
 	@Autowired
 	private PasswordEncoder bCryptPasswordEncoder;
 	public static void main(String[] args) {
 		SpringApplication.run(DearComradeSecurityZeroToHeroApplication.class, args);
-	}
-
-	@Bean
-	public ApplicationRunner applicationRunner(){
-		return wer->{
-			ComradeUserEntity comradeUserEntity = ComradeUserEntity.builder()
-					.username("dasari")
-					.password(bCryptPasswordEncoder.encode("shiva"))
-					.enabled(true)
-					.build();
-			comradeUserRepository.save(comradeUserEntity);
-		};
 	}
 }

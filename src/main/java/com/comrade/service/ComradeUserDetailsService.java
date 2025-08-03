@@ -1,7 +1,7 @@
 package com.comrade.service;
 
 import com.comrade.config.ComradeUserDetails;
-import com.comrade.repository.ComradeUserRepository;
+//import com.comrade.repository.ComradeUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,11 +14,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ComradeUserDetailsService implements UserDetailsService {
 
-    private final ComradeUserRepository comradeUserRepository;
+//    private final ComradeUserRepository comradeUserRepository;
     @Override
     public UserDetails loadUserByUsername(String username) {
-       return comradeUserRepository.findByUsername(username)
-               .map(ComradeUserDetails::new)
-               .orElseThrow(()-> new  UsernameNotFoundException("User not found"));
+       return null;
     }
 }

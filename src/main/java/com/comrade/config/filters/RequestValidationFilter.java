@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-@Component
 @Slf4j
 public class RequestValidationFilter implements Filter {
     @Override
