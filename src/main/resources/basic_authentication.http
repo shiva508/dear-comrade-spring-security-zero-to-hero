@@ -1,4 +1,5 @@
 GET http://localhost:8084/api/v1/welcome
 API-KEY: DEAR_COMRADE
+Authorization: Basic c2hpdmE6ZGFzYXJp
 
 Content-Type: application/json

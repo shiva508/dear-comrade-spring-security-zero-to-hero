@@ -4,7 +4,6 @@ server:
 spring:
   application:
     name: dear-comrade-security-zero-to-hero
-
   datasource:
     url: jdbc:postgresql://0.0.0.0:5432/dha
     username: comrade

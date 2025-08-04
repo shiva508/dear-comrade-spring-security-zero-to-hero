@@ -12,8 +12,9 @@ import java.io.IOException;
 @Slf4j
 public class ComradeOncePerRequestFilter extends OncePerRequestFilter {
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
         String apiKey = request.getHeader("API-KEY");
         log.info("API_KEY= {}",apiKey);
         filterChain.doFilter(request,response);
