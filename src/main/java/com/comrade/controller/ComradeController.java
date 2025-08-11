@@ -19,23 +19,7 @@ import java.util.concurrent.Executors;
 public class ComradeController {
 
     @GetMapping("/welcome")
-    public Map<String, String> helloSecurity() throws ExecutionException, InterruptedException {
-        Callable<String> securityContext = ()->{
-            SecurityContext context = SecurityContextHolder.getContext();
-            return context.getAuthentication().getName();
-        };
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
-        /**
-         * Approach-1
-         */
-//
-//        DelegatingSecurityContextCallable<String> contextCallable = new DelegatingSecurityContextCallable<>(securityContext);
-//        String securityName = executorService.submit(contextCallable).get();
-        /**
-         * Approach-2
-         */
-        executorService = new DelegatingSecurityContextExecutorService(executorService);
-        String securityName = executorService.submit(securityContext).get();
-        return Map.of("name","Shiva","sec",securityName);
+    public Map<String, String> helloSecurity(){
+        return Map.of("name","Shiva");
     }
 }
